@@ -20,6 +20,7 @@ jobs:
 
     - name: Clone and Install Sail from JSON branch
       run: |
+        eval $(opam config env)
         opam install dune
         git clone --branch json https://github.com/thinkopenly/sail.git
         cd sail
@@ -28,7 +29,6 @@ jobs:
 
     - name: Run make json in current repo and save output
       run: |  
-        eval $(opam config env)
         make json > isa.json
 
     - name: Configure Git
