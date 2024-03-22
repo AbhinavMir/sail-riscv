@@ -9,21 +9,21 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Install OPAM, OCaml, and required libraries
-      run: |
-        sudo apt install -y software-properties-common
-        sudo apt update
-        sudo apt install -y opam zlib1g-dev pkg-config libgmp-dev z3 device-tree-compiler
-        opam init -y
-        opam switch create 4.12.0
-        eval $(opam env)
+    # - name: Install OPAM, OCaml, and required libraries
+    #   run: |
+    #     sudo apt install -y software-properties-common
+    #     sudo apt update
+    #     sudo apt install -y opam zlib1g-dev pkg-config libgmp-dev z3 device-tree-compiler
+    #     opam init -y
+    #     opam switch create 4.12.0
+    #     eval $(opam env)
 
-    - name: Clone and Install Sail from JSON branch
-      run: |
-        git clone --branch json https://github.com/thinkopenly/sail.git
-        cd sail
-        make
-        sudo make install
+    # - name: Clone and Install Sail from JSON branch
+    #   run: |
+    #     git clone --branch json https://github.com/thinkopenly/sail.git
+    #     cd sail
+    #     make
+    #     sudo make install
 
     - name: Run make json in current repo and save output
       run: |  
