@@ -20,6 +20,7 @@ jobs:
 
     - name: Clone and Install Sail from JSON branch
       run: |
+        opam install dune
         git clone --branch json https://github.com/thinkopenly/sail.git
         cd sail
         make
