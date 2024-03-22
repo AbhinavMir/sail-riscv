@@ -22,10 +22,10 @@ jobs:
     - name: Clone and Install Sail from JSON branch
       run: |
         eval $(opam config env)
-        opam install . --deps-only
         opam install -y dune linenoise menhir lem ott omd base64
         git clone --branch json https://github.com/thinkopenly/sail.git
         cd sail
+        opam install . --deps-only
         make
         sudo make install
 
