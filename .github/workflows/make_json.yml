@@ -14,6 +14,7 @@ jobs:
         sudo apt install -y software-properties-common
         sudo apt update
         sudo apt install -y opam zlib1g-dev pkg-config libgmp-dev z3 device-tree-compiler
+        sudo apt-get install build-essential libgmp-dev z3 pkg-config zlib1g-dev
         opam init -y
         opam switch create 4.12.0
         eval $(opam env)
@@ -21,6 +22,7 @@ jobs:
     - name: Clone and Install Sail from JSON branch
       run: |
         eval $(opam config env)
+        opam install . --deps-only
         opam install -y dune linenoise menhir lem ott omd base64
         git clone --branch json https://github.com/thinkopenly/sail.git
         cd sail
