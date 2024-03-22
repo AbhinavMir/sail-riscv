@@ -1,0 +1,32 @@
+name: OCaml and Sail Setup
+
+on: [push, pull_request]
+
+jobs:
+  setup-and-run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Install OPAM and OCaml
+        run: |
+          sudo apt update
+          sudo apt install -y software-properties-common
+          sudo add-apt-repository -y ppa:avsm/ppa
+          sudo apt update
+          sudo apt install -y opam
+          opam init -y
+          opam switch create 4.12.0
+          eval $(opam env)
+          
+      - name: Clone and Install Sail from JSON branch
+        run: |
+          git clone --branch JSON https://github.com/thinkopenly/sail.git
+          cd sail
+          make
+          sudo make install
+          
+      - name: Run make json in current repo
+        run: |
+          eval $(opam config env)
+          make json
