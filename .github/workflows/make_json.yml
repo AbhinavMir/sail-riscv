@@ -20,7 +20,7 @@ jobs:
 
     - name: Clone and Install Sail from JSON branch
       run: |
-        git clone --branch JSON https://github.com/thinkopenly/sail.git
+        git clone --branch json https://github.com/thinkopenly/sail.git
         cd sail
         make
         sudo make install
