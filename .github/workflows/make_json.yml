@@ -1,4 +1,4 @@
-name: OCaml and Sail Setup
+name: Generate JSON from latest JSON variant of Sail
 
 on: [push, pull_request]
 
