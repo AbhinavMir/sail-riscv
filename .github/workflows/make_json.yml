@@ -25,7 +25,6 @@ jobs:
         opam install -y dune linenoise menhir lem ott omd base64
         git clone --branch json https://github.com/thinkopenly/sail.git
         cd sail
-        git checkout json
         opam install . --deps-only
         sudo make install
 

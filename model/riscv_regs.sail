@@ -110,6 +110,7 @@ register x29 : regtype
 register x30 : regtype
 register x31 : regtype
 
+
 val rX : forall 'n, 0 <= 'n < 32. regno('n) -> xlenbits
 function rX r = {
   let v : regtype =
