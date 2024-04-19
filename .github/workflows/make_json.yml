@@ -25,7 +25,7 @@ jobs:
         opam install -y dune linenoise menhir lem ott omd base64
         git clone --branch abhinavmir/json_regs https://github.com/abhinavmir/sail.git
         cd sail
-        opam install . --deps-only
+        opam install . --deps-only -y
         sudo make install
 
     - name: Run make json in current repo and save output
