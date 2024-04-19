@@ -23,7 +23,7 @@ jobs:
       run: |
         eval $(opam config env)
         opam install -y dune linenoise menhir lem ott omd base64
-        git clone --branch json https://github.com/thinkopenly/sail.git
+        git clone --branch abhinavmir/json_regs https://github.com/abhinavmir/sail.git
         cd sail
         opam install . --deps-only
         sudo make install
